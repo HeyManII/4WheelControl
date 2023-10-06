@@ -1,0 +1,175 @@
+void setup()
+{
+  pinMode(22, INPUT);
+  pinMode(44, INPUT);
+  pinMode(23, INPUT);
+  pinMode(45, INPUT);
+  pinMode(11, OUTPUT);
+  pinMode(17, OUTPUT);
+  pinMode(8, OUTPUT);
+  pinMode(41, OUTPUT);
+  pinMode(10, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(10, OUTPUT);
+  pinMode(3, OUTPUT);
+  pinMode(2, OUTPUT);
+  pinMode(38, OUTPUT);
+  pinMode(39, OUTPUT);
+  servo_pin_9.attach(9);
+  _ABVAR_1_degree = 0;
+  analogWrite(8, 255);
+  analogWrite(10, 255);
+  analogWrite(11, 255);
+}
+
+void loop()
+{
+  if (((analogRead(5)) < (500))) // rotation
+  {
+    digitalWrite(11, HIGH);
+    digitalWrite(10, LOW);
+    analogWrite(8, 140);
+    digitalWrite(3, HIGH);
+    digitalWrite(2, LOW);
+    analogWrite(17, 128);
+  }
+  delay(10);
+  else
+  {
+    if (((analogRead(5)) > (540)))
+    {
+      digitalWrite(11, LOW);
+      digitalWrite(10, HIGH);
+      analogWrite(8, 140);
+      digitalWrite(3, LOW);
+      digitalWrite(2, HIGH);
+      analogWrite(17, 128);
+    }
+    delay(10);
+    else
+    {
+      analogWrite(8, 0);
+    }
+  }
+  analogWrite(17, 0);
+
+  if (digitalRead(23) != (1))
+  {
+    digitalWrite(11, LOW);
+    digitalWrite(10, HIGH);
+    analogWrite(8, 240);
+    digitalWrite(3, LOW);
+    digitalWrite(2, HIGH);
+    analogWrite(17, 160);
+  }
+  delay(75);
+  if (digitalRead(22) != (1))
+  {
+    digitalWrite(11, HIGH);
+    digitalWrite(10, LOW);
+    analogWrite(8, 240);
+    digitalWrite(3, HIGH);
+    digitalWrite(2, LOW);
+    analogWrite(17, 160);
+  }
+  delay(75);
+  {
+    if (((analogRead(0)) < (500))) // backward slow
+      digitalWrite(11, LOW);
+    digitalWrite(10, HIGH);
+    analogWrite(8, 180);
+    digitalWrite(3, HIGH);
+    digitalWrite(2, LOW);
+    analogWrite(17, 130);
+    delay(30);
+    analogWrite(8, 0);
+    analogWrite(17, 0);
+  }
+  delay(15);
+  else
+  {
+    if (((analogRead(0)) > (540))) // forward slow
+    {
+      digitalWrite(11, HIGH);
+      digitalWrite(10, LOW);
+      analogWrite(8, 250);
+      digitalWrite(3, LOW);
+      digitalWrite(2, HIGH);
+      analogWrite(17, 240);
+      delay(30);
+      analogWrite(8, 0);
+      analogWrite(17, 0);
+    }
+    delay(15);
+    else
+    {
+      if (((analogRead(11)) > (540))) // forward fast
+      {
+        digitalWrite(11, HIGH);
+        digitalWrite(10, LOW);
+        analogWrite(8, 250);
+        digitalWrite(3, LOW);
+        digitalWrite(2, HIGH);
+        analogWrite(17, 240);
+      }
+      delay(100);
+      else
+      {
+        if (((analogRead(11)) < (490))) // backward fast
+
+        {
+          digitalWrite(11, LOW);
+          digitalWrite(10, HIGH);
+          analogWrite(8, 180);
+          digitalWrite(3, HIGH);
+          digitalWrite(2, LOW);
+          analogWrite(17, 130);
+        }
+        delay(100);
+        else
+        {
+          analogWrite(8, 0);
+        }
+      }
+    }
+  }
+  analogWrite(17, 0);
+  if (digitalRead(45))
+  {
+    analogWrite(41, 0);
+  }
+  else
+  {
+    digitalWrite(38, HIGH);
+    digitalWrite(39, LOW);
+    analogWrite(41, 205);
+  }
+  delay(200);
+  if (digitalRead(44))
+  {
+    analogWrite(41, 0);
+  }
+  else
+  {
+    digitalWrite(38, HIGH);
+    digitalWrite(39, LOW);
+    analogWrite(41, 210);
+  }
+  delay(200);
+  _ABVAR_2_pos = analogRead(6);
+  if (( ( ( _ABVAR_1_degree ) <= ( 65 ) ) && ( ( _ABVAR_1_degree ) >={(-5))))
+  if (( ( ( _ABVAR_2_pos ) <= ( 510 ) ) && ( ( _ABVAR_1_degree ) > ( 0 ) ) ))
+    {
+      _ABVAR_1_degree = (_ABVAR_1_degree - 4);
+    }
+    else
+    {
+      if ((((_ABVAR_2_pos) >= (530)) && ((_ABVAR_1_degree) <= (60))))
+      {
+        _ABVAR_1_degree = (_ABVAR_1_degree + 4);
+      }
+    }
+    servo_pin_9.write(_ABVAR_1_degree);
+  }
+}
+delay(150);
