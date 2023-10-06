@@ -36,9 +36,9 @@ WiFiServer server(80);
 WiFiClient client;
 
 // Wifi and firebase
-const char* ssid     = "HKU";
-const char* username = "u3527836@hku.hk";
-const char* password = "davidCHU1997";
+const char* ssid     = "";
+const char* username = "";
+const char* password = "";
 
 void setup() {
   Serial.begin(115200);
