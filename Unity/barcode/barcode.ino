@@ -27,9 +27,9 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT,
 SoftwareSerial mySerial(D7, D8);
 
 // Wifi
-const char* ssid     = "HKU";
-const char* username = "u3527836@hku.hk";
-const char* password = "davidCHU1997";
+const char* ssid     = "";
+const char* username = "";
+const char* password = "";
 
 //set the port to unity as 80
 WiFiServer server(80);
