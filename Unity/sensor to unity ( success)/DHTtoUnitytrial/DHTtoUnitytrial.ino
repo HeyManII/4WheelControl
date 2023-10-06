@@ -24,9 +24,9 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT,
 // Wifi and firebase
 #define FIREBASE_HOST "dht-sensor-b6add.firebaseio.com"
 #define FIREBASE_AUTH "uaJeEQJL2UbYSS0JtugPAaBu6nnuQ460XVwgKX8k"
-const char* ssid     = "HKU";
-const char* username = "u3527836@hku.hk";
-const char* password = "davidCHU1997";
+const char* ssid     = "";
+const char* username = "";
+const char* password = "";
 
 //set the port to unity as 26
 WiFiServer server(80);
